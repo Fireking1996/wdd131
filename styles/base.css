@@ -1,0 +1,49 @@
+header{
+    background-color: blueviolet;
+    padding: 1rem;
+  grid-column: 1 / 4;
+}
+
+nav{
+    background-color: black;
+    color: antiquewhite;
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    padding: 2rem
+}
+
+body{
+    font-family: 'Water Brush', cursive;
+    background-color: silver;
+    display: grid;
+    height: 100vh;
+    grid-template: auto 1fr auto / 1fr auto;
+}
+
+section{
+    grid-column: 2/ 3;
+    padding: 2rem;
+    border-bottom: 1px black;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+main{
+    background-color: green;
+    display: flex;
+    justify-content: space-between;
+    max-width: 10000px;
+}
+.card {
+    margin-top: 20px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+  }
+
+footer{
+    background-color: gold;
+    padding: 2rem;
+    text-align: center;
+    grid-column: 1 / 4;
+}
