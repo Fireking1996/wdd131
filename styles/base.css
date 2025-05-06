@@ -1,12 +1,12 @@
 header{
-    background-color: blueviolet;
+    background-color: #AD6BEB;
     padding: 1rem;
   grid-column: 1 / 4;
 }
 
 nav{
-    background-color: black;
-    color: antiquewhite;
+    background-color: #E8E8E8;
+    color: #7575FF;
     position: relative;
     display: flex;
     justify-content: space-around;
@@ -29,7 +29,7 @@ section{
     margin-bottom: 20px;
 }
 main{
-    background-color: green;
+    background-color: #23C744;
     display: flex;
     justify-content: space-between;
     max-width: 10000px;
