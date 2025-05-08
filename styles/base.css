@@ -27,6 +27,7 @@ section{
     border-bottom: 1px black;
     padding-bottom: 20px;
     margin-bottom: 20px;
+    display: grid;
 }
 main{
     background-color: #23C744;
@@ -40,7 +41,9 @@ main{
     border: 1px solid #ddd;
     border-radius: 8px;
   }
-
+img{
+    align-items: ;
+}
 footer{
     background-color: gold;
     padding: 2rem;
