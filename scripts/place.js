@@ -1,44 +1,36 @@
-document.addEventListener("DOMContentLoaded", function () {
-    // Static values for temperature and wind speed
-    const temperature = 31; // in °C
-    const windSpeed = 7; // in km/h
+document.addEventListener("DOMContentLoaded", () => {
+  const temperature = 31; // °C
+  const windSpeed = 7;    // km/h
 
-    // Function to calculate wind chill factor
-    function calculateWindChill(temp, wind) {
-        return 13.12 + 0.6215 * temp - 11.37 * Math.pow(wind, 0.16) + 0.3965 * temp * Math.pow(wind, 0.16);
-    }
+  const windChillRow = document.createElement("tr");
+  windChillRow.innerHTML = `
+    <td class="label"><b>Wind Chill:</b></td>
+    <td>${getWindChillDisplay(temperature, windSpeed)}</td>
+  `;
 
-    // Function to determine if wind chill calculation is applicable
-    function isWindChillApplicable(temp, wind) {
-        return temp <= 10 && wind > 4.8;
-    }
+  document.querySelector(".weather table").appendChild(windChillRow);
 
-    // Display wind chill factor
-    const windChillElement = document.createElement("tr");
-    const windChillLabel = document.createElement("td");
-    windChillLabel.className = "label";
-    windChillLabel.innerHTML = "<b>Wind Chill:</b>";
-
-    const windChillValue = document.createElement("td");
-    if (isWindChillApplicable(temperature, windSpeed)) {
-        const windChill = calculateWindChill(temperature, windSpeed).toFixed(2);
-        windChillValue.textContent = `${windChill} °C`;
-    } else {
-        windChillValue.textContent = "N/A";
-    }
-
-    windChillElement.appendChild(windChillLabel);
-    windChillElement.appendChild(windChillValue);
-
-    document.querySelector(".weather table").appendChild(windChillElement);
+  // Footer info
+  document.getElementById("currentyear").textContent = new Date().getFullYear();
+  document.getElementById("lastModified").textContent = `Last update: ${document.lastModified}`;
 });
 
+// Helpers
+function getWindChillDisplay(temp, wind) {
+  return isWindChillApplicable(temp, wind)
+    ? `${calculateWindChill(temp, wind).toFixed(2)} °C`
+    : "N/A";
+}
 
+function isWindChillApplicable(temp, wind) {
+  return temp <= 10 && wind > 4.8;
+}
 
-// Footer information
-const currentYear = new Date().getFullYear();
-const lastModified = document.lastModified;
-const copyrightYearElement = document.getElementById('currentyear');
-const lastModifiedElement = document.getElementById('lastModified');
-copyrightYearElement.textContent = currentYear;
-lastModifiedElement.textContent = `Last update: ${lastModified}`;
+function calculateWindChill(temp, wind) {
+  return (
+    13.12 +
+    0.6215 * temp -
+    11.37 * Math.pow(wind, 0.16) +
+    0.3965 * temp * Math.pow(wind, 0.16)
+  );
+}
