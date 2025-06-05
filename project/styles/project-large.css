@@ -1,0 +1,17 @@
+@media (min-width: 1024px) {
+  .nav-links a {
+    font-size: 1.2rem;
+  }
+
+  .hero h1 {
+    font-size: 3rem;
+  }
+
+  .type-card {
+    font-size: 1.1rem;
+  }
+
+  .newsletter form {
+    flex-direction: row;
+  }
+}
