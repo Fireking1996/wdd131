@@ -1,0 +1,40 @@
+body {
+  font-family: 'Open Sans', sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+  padding: 1rem;
+  max-width: 700px;
+  margin: auto;
+}
+
+h1, h2 {
+  font-family: 'Cinzel', serif;
+  color: #8B0000;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+label, fieldset {
+  margin-top: 0.5rem;
+}
+
+input[type="submit"] {
+  background-color: #FFD700;
+  color: black;
+  border: none;
+  padding: 0.75rem;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+footer {
+  margin-top: 2rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #555;
+}
