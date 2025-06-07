@@ -5,7 +5,9 @@
   --text: #E0E0E0;
   --header-height: 60px;
 }
-
+h1,h2{
+  background: var(--primary);
+}
 * {
   box-sizing: border-box;
 }
