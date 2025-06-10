@@ -5,10 +5,7 @@
   --text: #E0E0E0;
   --header-height: 60px;
 }
-h1,h2{
-  background: var(--primary);
-  font-family: 'Cinzel', serif;
-}
+
 * {
   box-sizing: border-box;
 }
@@ -32,7 +29,7 @@ header {
   z-index: 1000;
 }
 
-/* Show hamburger menu on mobile */
+/* Hamburger menu styles */
 .hamburger {
   display: flex;
   flex-direction: column;
@@ -107,4 +104,44 @@ main, .content {
   max-width: 300px;
   height: auto;
   border-radius: 10px;
+}
+
+/* --- World Map Styles --- */
+.world-map {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.6);
+  margin: 1rem 0;
+}
+
+.region {
+  cursor: pointer;
+  transition: fill 0.3s ease, stroke-width 0.3s ease;
+  fill-opacity: 0.9;
+  stroke-opacity: 0.9;
+}
+
+.region:hover {
+  fill: var(--accent); /* golden highlight on hover */
+  stroke-width: 3;
+  fill-opacity: 1;
+}
+
+.world-map text {
+  user-select: none;
+  pointer-events: none;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+}
+
+/* Map placeholder fallback */
+.map-placeholder {
+  background-color: #222;
+  color: var(--accent);
+  padding: 2rem;
+  text-align: center;
+  border-radius: 10px;
+  font-family: monospace;
+  font-size: 1.2rem;
+  user-select: none;
 }

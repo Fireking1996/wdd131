@@ -1,106 +1,396 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Dragon Lore Atlas</title>
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel&family=Open+Sans&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles/project.css" />
-  <link rel="stylesheet" href="styles/project-large.css"/>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel&family=Open+Sans&display=swap"
+    rel="stylesheet"
+  />
+  <style>
+    :root {
+      --primary: #8b0000;
+      --background: #2f2f2f;
+      --accent: #ffd700;
+      --text: #e0e0e0;
+      --header-height: 60px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Open Sans", sans-serif;
+      background-color: var(--background);
+      color: var(--text);
+    }
+
+    header {
+      background: var(--primary);
+      height: var(--header-height);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 1rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo {
+      font-family: "Cinzel", serif;
+      font-size: 1.5rem;
+      color: var(--accent);
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      gap: 1rem;
+    }
+
+    nav a {
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    main,
+    .content {
+      margin: 1rem;
+      background-color: #3a3a3a;
+      padding: 1.5rem;
+      border-radius: 10px;
+    }
+
+    /* Hero section */
+    .hero {
+      text-align: center;
+      padding: 1.5rem 1rem;
+    }
+
+    /* Featured dragon - stacked layout */
+    .featured-dragon {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      align-items: center;
+    }
+
+    .featured-dragon img {
+      width: 100%;
+      max-width: 300px;
+      height: auto;
+      border-radius: 10px;
+    }
+
+    /* Dragon types cards */
+    .dragon-types {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 2rem;
+    }
+
+    .type-card {
+      background-color: var(--primary);
+      color: var(--accent);
+      padding: 1rem;
+      border-radius: 8px;
+      min-width: 150px;
+      text-align: center;
+      font-weight: 700;
+      cursor: default;
+    }
+
+    /* Newsletter form */
+    .newsletter form {
+      display: flex;
+      gap: 0.5rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .newsletter input[type="email"] {
+      padding: 0.5rem;
+      border-radius: 5px;
+      border: none;
+      flex: 1 1 200px;
+      font-size: 1rem;
+    }
+
+    .newsletter button {
+      background-color: var(--accent);
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      font-weight: 700;
+      cursor: pointer;
+      color: var(--primary);
+      transition: background-color 0.3s ease;
+    }
+
+    .newsletter button:hover {
+      background-color: #e6c700;
+    }
+
+    footer {
+      text-align: center;
+      margin: 2rem 1rem;
+      color: var(--text);
+      font-size: 0.9rem;
+    }
+
+    footer .social-links a {
+      color: var(--accent);
+      margin: 0 0.5rem;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    footer .social-links a:hover {
+      text-decoration: underline;
+    }
+
+    /* --- World Map Styles --- */
+    .world-map {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+      margin: 1rem 0;
+      background-color: #0e1e40; /* dark blue ocean */
+    }
+
+    .region {
+      cursor: pointer;
+      transition: fill 0.3s ease, stroke-width 0.3s ease;
+      fill-opacity: 0.9;
+      stroke-opacity: 0.9;
+      stroke: #123d6b;
+      stroke-width: 1.5;
+    }
+
+    .region:hover {
+      fill: var(--accent);
+      stroke-width: 3;
+      fill-opacity: 1;
+    }
+
+    .world-map text {
+      user-select: none;
+      pointer-events: none;
+      fill: var(--text);
+      font-weight: 600;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+      font-size: 0.7rem;
+      font-family: "Cinzel", serif;
+    }
+  </style>
 </head>
 <body>
-    <div style="text-align: center; margin-top: 1rem;">
-    <img src="images/logo.jpg" alt="Dragon Lore Atlas Logo" style="width: 80px; height: auto;" />
+  <header>
+    <div class="logo">Dragon Lore Atlas</div>
+    <nav>
+      <ul>
+        <li><a href="#types">Types</a></li>
+        <li><a href="#map">Mythos Map</a></li>
+        <li><a href="#compare">Compare</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1>Explore Dragons from Every Corner of the Earth</h1>
+      <p>
+        Discover the legends, myths, and creatures that shaped cultures around
+        the world.
+      </p>
+      <a href="#featured" class="cta-button" style="
+        background: var(--accent);
+        color: var(--primary);
+        padding: 0.75rem 1.5rem;
+        border-radius: 8px;
+        font-weight: 700;
+        text-decoration: none;
+        display: inline-block;
+        margin-top: 1rem;
+      "
+        >Meet the Dragon of the Week</a
+      >
+    </section>
+
+    <section id="featured" class="featured-dragon">
+      <h2>🔥 Featured Dragon: The Chinese Lung</h2>
+      <img src="images/chinese-dragon.jpeg" alt="Chinese Dragon" />
+      <p>
+        The Chinese Lung is a benevolent water dragon, often associated with
+        rain and imperial power in ancient Chinese mythology.
+      </p>
+    </section>
+
+    <section id="types" class="dragon-types">
+      <h2>🐲 Dragon Types by Region</h2>
+      <div class="type-card">European Wyvern</div>
+      <div class="type-card">Japanese Ryū</div>
+      <div class="type-card">Aztec Quetzalcoatl</div>
+      <!-- Add more as needed -->
+    </section>
+
+    <section id="map" class="interactive-map">
+      <h2>🌍 Interactive Mythos Map</h2>
+      <p>Click a region to discover dragons native to that mythology.</p>
+
+      <!-- Detailed SVG World Map -->
+      <svg
+        class="world-map"
+        viewBox="0 0 800 400"
+        xmlns="http://www.w3.org/2000/svg"
+        aria-label="World map with dragon mythology regions"
+        role="img"
+      >
+        <!-- Oceans -->
+        <rect width="800" height="400" fill="#0e1e40" />
+
+        <!-- Example regions (simplified continents) -->
+
+        <!-- North America -->
+        <path
+          class="region"
+          id="north-america"
+          d="M120 80 L160 70 L190 110 L180 140 L140 140 Z"
+          fill="#2c7a2c"
+          stroke="#123d6b"
+        />
+        <text x="130" y="110">North America</text>
+
+        <!-- South America -->
+        <path
+          class="region"
+          id="south-america"
+          d="M150 170 L180 160 L190 190 L170 210 L140 210 Z"
+          fill="#2c7a2c"
+          stroke="#123d6b"
+        />
+        <text x="150" y="190">South America</text>
+
+        <!-- Europe -->
+        <path
+          class="region"
+          id="europe"
+          d="M330 90 L360 80 L370 110 L350 130 L320 110 Z"
+          fill="#2c7a2c"
+          stroke="#123d6b"
+        />
+        <text x="335" y="110">Europe</text>
+
+        <!-- Africa -->
+        <path
+          class="region"
+          id="africa"
+          d="M350 140 L380 140 L390 180 L370 200 L340 180 Z"
+          fill="#2c7a2c"
+          stroke="#123d6b"
+        />
+        <text x="350" y="170">Africa</text>
+
+        <!-- Asia -->
+        <path
+          class="region"
+          id="asia"
+          d="M420 90 L460 90 L480 130 L450 150 L410 130 Z"
+          fill="#2c7a2c"
+          stroke="#123d6b"
+        />
+        <text x="430" y="120">Asia</text>
+
+        <!-- Australia -->
+        <path
+          class="region"
+          id="australia"
+          d="M500 220 L530 210 L540 230 L520 240 L490 230 Z"
+          fill="#2c7a2c"
+          stroke="#123d6b"
+        />
+        <text x="500" y="230">Australia</text>
+
+        <!-- Antarctica -->
+        <path
+          class="region"
+          id="antarctica"
+          d="M300 370 L380 370 L400 390 L350 400 L300 390 Z"
+          fill="#2c7a2c"
+          stroke="#123d6b"
+        />
+        <text x="330" y="385">Antarctica</text>
+      </svg>
+    </section>
+
+    <section id="compare" class="compare-dragons">
+  <h2>⚔️ Compare Dragons</h2>
+  <p>Select two dragons to view side-by-side stats and lore.</p>
+
+  <div class="compare-selectors">
+    <div>
+      <label for="dragon1">Dragon 1:</label>
+      <select id="dragon1">
+        <option value="">--Select Dragon--</option>
+        <option value="chinese">Chinese Lung</option>
+        <option value="wyvern">European Wyvern</option>
+        <option value="ryu">Japanese Ryū</option>
+        <option value="quetzalcoatl">Aztec Quetzalcoatl</option>
+      </select>
+    </div>
+
+    <div>
+      <label for="dragon2">Dragon 2:</label>
+      <select id="dragon2">
+        <option value="">--Select Dragon--</option>
+        <option value="chinese">Chinese Lung</option>
+        <option value="wyvern">European Wyvern</option>
+        <option value="ryu">Japanese Ryū</option>
+        <option value="quetzalcoatl">Aztec Quetzalcoatl</option>
+      </select>
+    </div>
   </div>
 
-  <h1 style="text-align: center;">Dragon Lore Atlas</h1>
-  <ul style="max-width: 700px; margin: 1rem auto; color: #E0E0E0; font-family: 'Open Sans', sans-serif;">
-    <li>I made this website because I love dragons.</li>
-    <li><strong>Optional domain availability:</strong> dragonloreatlas.com</li>
-  </ul>
+  <div class="compare-results" style="margin-top: 1rem; display: flex; gap: 2rem;">
+    <div class="dragon-info" id="info1" style="flex: 1; background: #444; padding: 1rem; border-radius: 8px; color: #ffd700;">
+      <h3>Dragon 1 Info</h3>
+      <p>Select a dragon to see details</p>
+    </div>
+    <div class="dragon-info" id="info2" style="flex: 1; background: #444; padding: 1rem; border-radius: 8px; color: #ffd700;">
+      <h3>Dragon 2 Info</h3>
+      <p>Select a dragon to see details</p>
+    </div>
+  </div>
+</section>
 
-  <div class="content" style="max-width: 700px; margin: 2rem auto; background-color: #3A3A3A; padding: 1.5rem; border-radius: 10px;">
-    <h2>For the Dragon Lore Atlas</h2>
-    <ul>
-      <li>The site provides a hub for dragon mythology by offering regional dragon types, mythological background, an interactive map, and comparison tools for dragon characteristics across cultures.</li>
-    </ul>
+    <section class="newsletter">
+      <h3>📬 Stay Updated</h3>
+      <form>
+        <input type="email" placeholder="Enter your email" required />
+        <button type="submit">Subscribe</button>
+      </form>
+    </section>
+  </main>
 
-    <h2>For the Dragon Lore Atlas</h2>
-    <ul>
-      <li>What dragons live in China</li>
-      <li>How many kinds of dragons are there?</li>
-    </ul>
-
-    <h2>Color</h2>
-    <ul>
-      <li><code>--primary</code> (#8B0000): Used for header backgrounds and main branding elements to create a strong, bold presence.</li>
-      <li><code>--accent</code> (#FFD700): Used for highlights, buttons, and accent text to draw attention and add warmth.</li>
-    </ul>
-
-    <h2>Typography</h2>
-    <ul>
-      <li><code>Cinzel</code>: A serif font used for headings and the site logo to give a classic, elegant feel.</li>
-      <li><code>Open Sans</code>: A clean sans-serif font used for body text and navigation for readability and modern style.</li>
-    </ul>
-
-    <h2>Wireframe</h2>
-<pre style="background-color: #222; padding: 1rem; border-radius: 5px; overflow-x: auto; font-family: monospace; color: #FFD700; font-size: 0.9rem;">
-
-Desktop Layout
------------------------------------------------------
-|                   Header                          |
-|  Logo       |        Navigation Links             |
------------------------------------------------------
-|                     Hero Section                   |
-|       Large heading, description, and CTA button  |
------------------------------------------------------
-|                  Featured Dragon                   |
-|   Image on left, description on right              |
------------------------------------------------------
-|                 Dragon Types Section                |
-|  Cards or list of dragon types by region           |
------------------------------------------------------
-|                Interactive Mythos Map               |
-|               Placeholder for Map                   |
------------------------------------------------------
-|                 Compare Dragons Tool                |
-|             Placeholder for comparison              |
------------------------------------------------------
-|                     Newsletter                      |
-|       Email input and subscribe button             |
------------------------------------------------------
-|                      Footer                         |
-|    Social links and copyright information          |
------------------------------------------------------
-
-Mobile Layout
------------------------------------------------------
-|                   Header                          |
-|  Logo                                           ☰  |
------------------------------------------------------
-|                  Hero Section                      |
-|  Heading, description, and CTA button stacked     |
------------------------------------------------------
-|                Featured Dragon                      |
-|  Image above description                           |
------------------------------------------------------
-|                Dragon Types Section                 |
-|  Cards stacked vertically                           |
------------------------------------------------------
-|              Interactive Mythos Map                 |
-|             Placeholder for Map                     |
------------------------------------------------------
-|               Compare Dragons Tool                  |
-|            Placeholder for comparison               |
------------------------------------------------------
-|                   Newsletter                        |
-|        Email input and subscribe button             |
------------------------------------------------------
-|                    Footer                           |
-|     Social links and copyright info                 |
------------------------------------------------------
-</pre>
-
+  <footer>
+    <p>&copy; 2025 Dragon Lore Atlas. All rights reserved.</p>
+    <div class="social-links">
+      <a href="#">Twitter</a> |
+      <a href="#">Instagram</a> |
+      <a href="#">Contact</a>
+    </div>
+  </footer>
 </body>
 </html>

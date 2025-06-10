@@ -1,83 +1,45 @@
-:root {
-  --primary: #8B0000;
-  --background: #2F2F2F;
-  --accent: #FFD700;
-  --text: #E0E0E0;
-  --header-height: 60px;
-}
+/* styles/project-large.css */
 
-* {
-  box-sizing: border-box;
-}
+@media (min-width: 768px) {
+  header {
+    justify-content: space-between;
+  }
 
-body {
-  margin: 0;
-  font-family: 'Open Sans', sans-serif;
-  background-color: var(--background);
-  color: var(--text);
-}
+  .nav-links {
+    position: static;
+    transform: none;
+    flex-direction: row;
+    background: none;
+    height: auto;
+    width: auto;
+    padding-top: 0;
+    gap: 2rem;
+  }
 
-header {
-  background: var(--primary);
-  height: var(--header-height);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 1rem;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
+  .hamburger {
+    display: none;
+  }
 
-.logo {
-  font-family: 'Cinzel', serif;
-  font-size: 1.5rem;
-  color: var(--accent);
-}
+  .featured-dragon {
+    flex-direction: row;
+    align-items: center;
+  }
 
-.nav-links {
-  list-style: none;
-  display: flex;
-  gap: 1rem;
-  margin: 0;
-  padding: 0;
-}
+  .featured-dragon img {
+    max-width: 50%;
+  }
 
-.nav-links a {
-  color: var(--text);
-  text-decoration: none;
-  font-weight: 600;
-}
+  .dragon-types {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
 
-/* Hide hamburger on desktop */
-.hamburger {
-  display: none;
-}
-
-main, .content {
-  max-width: 700px;
-  margin: 2rem auto;
-  background-color: #3A3A3A;
-  padding: 1.5rem;
-  border-radius: 10px;
-}
-
-/* Hero section */
-.hero {
-  text-align: center;
-  padding: 2rem 1rem;
-}
-
-/* Featured dragon - horizontal layout */
-.featured-dragon {
-  display: flex;
-  gap: 1rem;
-  align-items: center;
-  margin-bottom: 2rem;
-}
-
-.featured-dragon img {
-  width: 200px;
-  height: auto;
-  border-radius: 10px;
+  .type-card {
+    flex: 1 1 calc(33% - 1rem);
+    background-color: #444;
+    border-left: 5px solid var(--accent);
+    padding: 1rem;
+    border-radius: 5px;
+  }
 }
