@@ -4,7 +4,7 @@ const dragons = {
     origin: "China",
     description: "A benevolent water dragon associated with rain and imperial power.",
     abilities: "Weather control, wisdom, strength",
-    image: "images/chinese-dragon.jpg",
+    image: "images/chinese-dragon.jpeg",
   },
   wyvern: {
     name: "European Wyvern",
