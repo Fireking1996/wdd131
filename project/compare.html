@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Compare Dragons</title>
+  <link rel="stylesheet" href="styles/project.css" />
+  <link rel="stylesheet" href="styles/project-large.css" />
+  <script src="scripts/project.js" defer></script>
+</head>
+<body>
+  <header>
+    <div class="branding">
+      <img src="images/logo.jpg" alt="Dragon Lore Atlas Logo" width="80" height="auto" />
+      <div class="logo">Dragon Lore Atlas</div>
+    </div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="dragons.html">Dragon Types</a></li>
+        <li><a href="compare.html" class="active">Compare</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="compare" class="compare-dragons">
+      <h2>⚔️ Compare Dragons</h2>
+      <p>Select two dragons to view side-by-side stats and lore.</p>
+
+      <form aria-label="Compare Dragons">
+        <label for="dragon1">Dragon 1:</label>
+        <select id="dragon1">
+          <option value="">--Select--</option>
+          <option value="chinese">Chinese Lung</option>
+          <option value="wyvern">European Wyvern</option>
+          <option value="ryu">Japanese Ryū</option>
+          <option value="quetzalcoatl">Aztec Quetzalcoatl</option>
+        </select>
+
+        <label for="dragon2">Dragon 2:</label>
+        <select id="dragon2">
+          <option value="">--Select--</option>
+          <option value="chinese">Chinese Lung</option>
+          <option value="wyvern">European Wyvern</option>
+          <option value="ryu">Japanese Ryū</option>
+          <option value="quetzalcoatl">Aztec Quetzalcoatl</option>
+        </select>
+      </form>
+
+      <div class="compare-box">
+        <div id="info1" aria-live="polite">
+          <h3>Dragon 1 Info</h3>
+          <p>Select a dragon to see details</p>
+        </div>
+        <div id="info2" aria-live="polite">
+          <h3>Dragon 2 Info</h3>
+          <p>Select a dragon to see details</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Dragon Lore Atlas</p>
+  </footer>
+</body>
+</html>
